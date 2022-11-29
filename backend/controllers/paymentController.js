@@ -3,7 +3,7 @@ const catchAsyncErrors = require('../middleweares/catchAsyncErrors');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
 // Process stripe payments
-exports.processPayment = catchAsyncErrors(async(re,res,next) =>{
+exports.processPayment = catchAsyncErrors(async(req,res,next) =>{
 
     const paymentIntent = await stripe.paymentIntents.create({
         amount: req.body.amount,
@@ -19,7 +19,7 @@ exports.processPayment = catchAsyncErrors(async(re,res,next) =>{
 });
 
 //Send Stripe API Key
-exports.sendStripeApi = catchAsyncErrors(async(re,res,next) =>{
+exports.sendStripeApi = catchAsyncErrors(async(req,res,next) =>{
     
     res.status(200).json({
         stripeApiKey: process.env.STRIPE_API_KEY
