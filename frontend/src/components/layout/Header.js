@@ -11,7 +11,7 @@ import { logout } from "../../actions/userActions";
 const Header = () => {
   const alert = useAlert();
   const dispatch = useDispatch();
-
+  const { cartItems } = useSelector(state => state.cart)
   const { user, loading } = useSelector((state) => state.auth);
   const { cartItems } = useSelector(state => state.cart);
 
@@ -39,7 +39,9 @@ const Header = () => {
           <Search />
         </div>
 
+
         <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
+<<<<<<< HEAD
           <Link to="/cart" style={{ textDecoration: "none" }}>
             <span id="cart" className="ml-3">
               Cart
@@ -48,6 +50,13 @@ const Header = () => {
               {cartItems.length}
             </span>
           </Link>
+=======
+                    <Link to="/cart" style={{ textDecoration: 'none' }} >
+                        <span id="cart" className="ml-3">Cart</span>
+                        <span className="ml-1" id="cart_count">{cartItems.length}</span>
+                    </Link>
+
+>>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
           {user ? (
             <div className="ml-4 drpdown d-inline">
               <Link
@@ -73,15 +82,14 @@ const Header = () => {
                 className="dropdown-menu"
                 aria-labelledby="dropDownMenuButton"
               >
-                {user && user.role !== "admin" ? (
-                  <Link className="dropdown-item" to="/orders/me">
+                {user && user.role !== "admin" && (
+                 <Link className="dropdown-item" to="/dashboard">
+                 Dashboard
+               </Link>
+                )}
+                 <Link className="dropdown-item" to="/orders/me">
                     Orders
                   </Link>
-                ) : (
-                  <Link className="dropdown-item" to="/dashboard">
-                    Dashboard
-                  </Link>
-                )}
                 <Link className="dropdown-item" to="/me">
                   Profile
                 </Link>

@@ -1,5 +1,9 @@
 import React, { Fragment, useState, useEffect } from "react";
+<<<<<<< HEAD
 import { Link, useNavigate, useLocation } from "react-router-dom";
+=======
+import { Link, useNavigate , useLocation} from "react-router-dom";
+>>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
 
 import Loader from "../layout/Loader";
 import MetaData from "../layout/MetaData";
@@ -15,18 +19,32 @@ const Login = ({ history }) => {
 
   const alert = useAlert();
   const dispatch = useDispatch();
+<<<<<<< HEAD
+=======
+  const location= useLocation();
+
+  const redirect = location.search ? location.search.split('=')[1] : ''
+
+>>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
   const navigate = useNavigate();
   const location = useLocation();
 
   const { isAuthenticated, error, loading } = useSelector(
     (state) => state.auth
   );
+<<<<<<< HEAD
 
   const redirect = location.search ? location.search.split('=')[1] : '/'
 
   useEffect(() => {
     if (isAuthenticated) {
       navigate(redirect);
+=======
+console.log("Redirect "+redirect)
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate(`/${redirect}`);
+>>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
     }
 
     if (error) {

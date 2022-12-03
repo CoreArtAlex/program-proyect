@@ -24,10 +24,23 @@ import axios from 'axios';
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 
+import Cart from './components/cart/Cart'
+import Shipping from "./components/cart/Shipping";
+import ConfirmOrder from "./components/cart/ConfirmOrder";
+import axios from "axios";
+import Payment from "./components/cart/Payment";
+import OrderSuccess from "./components/cart/OrderSuccess";
+import ListOrders from "./components/order/ListOrders";
+import OrderDetails from "./components/order/OrderDetails";
+
+
+import { Elements } from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
 function App() {
 
   const [stripeApiKey, setStripeApiKey] = useState('');
 
+<<<<<<< HEAD
   useEffect(() => {
     store.dispatch(loadUser());
 
@@ -37,6 +50,23 @@ function App() {
     };
 
     getStripeApiKey();
+=======
+
+  useEffect(() => {
+    store.dispatch(loadUser());
+
+
+    async function getStripApiKey() {
+      const { data } = await axios.get('/api/v1/stripeapi');
+
+      setStripeApiKey(data.stripeApiKey)
+    }
+
+    getStripApiKey();
+
+
+
+>>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
 
   }, []);
 
@@ -48,6 +78,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/cart" element={<Cart />} />
             <Route path="/search/:keyword" element={<Home />} />
             <Route path="/cart" element={<Cart />} />
             <Route 
@@ -98,6 +129,39 @@ function App() {
               }
             />
             <Route
+              path="/shipping"
+              element={
+                <ProtectedRoute>
+                  <Shipping />
+                </ProtectedRoute>
+              }
+            />
+              <Route
+              path="/order/confirm"
+              element={
+                <ProtectedRoute>
+                  <ConfirmOrder />
+                </ProtectedRoute>
+              }
+            />
+               <Route
+              path="/success"
+              element={
+                <ProtectedRoute>
+                  <OrderSuccess />
+                </ProtectedRoute>
+              }
+            />
+          {stripeApiKey &&      
+            <Route path="/payment" 
+            element={
+            <Elements stripe={loadStripe(stripeApiKey)}>
+              <Payment/>
+            </Elements>
+            } 
+            />
+          }
+            <Route
               path="/me/update"
               element={
                 <ProtectedRoute>
@@ -110,6 +174,22 @@ function App() {
               element={
                 <ProtectedRoute>
                   <UpdatePassword />
+                </ProtectedRoute>
+              }
+            />
+             <Route
+              path="/orders/me"
+              element={
+                <ProtectedRoute>
+                  <ListOrders />
+                </ProtectedRoute>
+              }
+            />
+             <Route
+              path="/orders/:id"
+              element={
+                <ProtectedRoute>
+                  <OrderDetails />
                 </ProtectedRoute>
               }
             />
