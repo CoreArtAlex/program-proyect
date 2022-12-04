@@ -1,9 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-<<<<<<< HEAD
-import { Link, useNavigate, useLocation } from "react-router-dom";
-=======
 import { Link, useNavigate , useLocation} from "react-router-dom";
->>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
 
 import Loader from "../layout/Loader";
 import MetaData from "../layout/MetaData";
@@ -19,32 +15,20 @@ const Login = ({ history }) => {
 
   const alert = useAlert();
   const dispatch = useDispatch();
-<<<<<<< HEAD
-=======
   const location= useLocation();
 
   const redirect = location.search ? location.search.split('=')[1] : ''
 
->>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
   const navigate = useNavigate();
-  const location = useLocation();
+  // const location = useLocation();
 
   const { isAuthenticated, error, loading } = useSelector(
     (state) => state.auth
   );
-<<<<<<< HEAD
-
-  const redirect = location.search ? location.search.split('=')[1] : '/'
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigate(redirect);
-=======
 console.log("Redirect "+redirect)
   useEffect(() => {
     if (isAuthenticated) {
       navigate(`/${redirect}`);
->>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
     }
 
     if (error) {
@@ -67,8 +51,8 @@ console.log("Redirect "+redirect)
         <Fragment>
           <MetaData title={"Login"} />
 
-          <div className="row wrapper">
-            <div className="col-10 col-lg-5">
+          <div className="container row wrapper align-items-center">
+            <div className="col-10 col-lg-5 justify-content-md-center">
               <form className="shadow-lg" onSubmit={submitHandler}>
                 <h1 className="mb-3">Login</h1>
                 <div className="form-group">
@@ -92,22 +76,23 @@ console.log("Redirect "+redirect)
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
-
-                <Link to="/password/forgot" className="float-right mb-4">
+              <div className="row align-items-center">
+                <Link to="/password/forgot" className=" col-sm-3 my-1 float-right">
                   Forgot Password?
                 </Link>
 
                 <button
                   id="login_button"
                   type="submit"
-                  className="btn btn-block py-3"
+                  className=" col-sm-3 my-1 btn btn-primary"
                 >
                   LOGIN
                 </button>
 
-                <Link to="/register" className="float-right mt-3">
+                <Link to="/register" className=" col-sm-3 my-1 float-right">
                   New User?
                 </Link>
+                </div>
               </form>
             </div>
           </div>

@@ -35,7 +35,7 @@ const Profile = () => {
               </Link>
             </div>
 
-            <div className="col-12 col-md-5">
+            <div className="col-12 col-md-5 align-items-center">
               <h4>Full Name</h4>
               <p>{user.name}</p>
 
@@ -53,7 +53,7 @@ const Profile = () => {
 
               <Link
                 to="/password/update"
-                className="btn btn-primary btn-block mt-3"
+                className="btn btn-primary btn-block mt-5"
               >
                 Change Password
               </Link>

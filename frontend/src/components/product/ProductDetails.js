@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import React, { Fragment, useEffect, useState } from "react";
-import { getProductDetails, clearErrors } from "../../actions/productActions";
-=======
 import React, { Fragment, useEffect, useState  } from "react";
 import { getProductDetails, clearErrors, newReview } from "../../actions/productActions";
->>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
 import { useDispatch, useSelector } from "react-redux";
 import { useAlert } from "react-alert";
 import Loader from "../layout/Loader";
@@ -12,19 +7,16 @@ import MetaData from "../layout/MetaData";
 import { Carousel } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { addItemToCart } from "../../actions/cartActions";
-<<<<<<< HEAD
-=======
 import { NEW_REVIEW_RESET } from '../../constants/productConstants'
 import ListReviews from "../review/ListReviews";
 
->>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
 
 const ProductDetails = ({match}) => {
   console.log("ProductDetails");
   const [quantity, setQuantity] = useState(1)
   const dispatch = useDispatch();
   const alert = useAlert();
-  const [quantity, setQuantity] = useState(1)
+  // const [quantity, setQuantity] = useState(1)
   const { loading, error, product } = useSelector(
     (state) => state.productDetails
   );
@@ -133,28 +125,23 @@ const reviewHandler = () => {
   dispatch(newReview(formData));
 }
 
-  const addToCart = () =>{
-    dispatch(addItemToCart(match.params.id, quantity));
-    alert.success('Item Added to Cart');
-  }
+  // const increaseQty = () =>{
+  //   const count = document.querySelector('.count');
 
-  const increaseQty = () =>{
-    const count = document.querySelector('.count');
+  //   if (count.valueAsNumber >= product.stock) return;
 
-    if (count.valueAsNumber >= product.stock) return;
+  //   const qty = count.valueAsNumber + 1;
+  //   setQuantity(qty)
+  // }
 
-    const qty = count.valueAsNumber + 1;
-    setQuantity(qty)
-  }
+  // const decreaseQty = () =>{
+  //   const count = document.querySelector('.count');
 
-  const decreaseQty = () =>{
-    const count = document.querySelector('.count');
+  //   if (count.valueAsNumber <= 1) return;
 
-    if (count.valueAsNumber <= 1) return;
-
-    const qty = count.valueAsNumber - 1;
-    setQuantity(qty)
-  }
+  //   const qty = count.valueAsNumber - 1;
+  //   setQuantity(qty)
+  // }
 
   return (
     <Fragment>
@@ -194,11 +181,7 @@ const reviewHandler = () => {
                 <input
                   type="number"
                   className="form-control count d-inline"
-<<<<<<< HEAD
-                  value={quantity}
-=======
                   value={quantity} 
->>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
                   readOnly
                 />
 
@@ -209,11 +192,7 @@ const reviewHandler = () => {
                 id="cart_btn"
                 className="btn btn-primary d-inline ml-4"
                 disabled={product.stock === 0}
-<<<<<<< HEAD
-                onClick ={addToCart}
-=======
                 onClick={addToCart}
->>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
               >
                 Add to Cart
               </button>

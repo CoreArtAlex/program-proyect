@@ -1,42 +1,8 @@
-<<<<<<< HEAD
-import React, {Fragment, useState} from 'react';
-import {useNavigate} from 'react-router-dom';
-import { countries } from 'countries-list';
-import MetaData from "../layout/MetaData";
-import CheckOutSteps from './CheckOutSteps';
-import { useDispatch, useSelector } from "react-redux";
-import { saveShippingInfo } from "../../actions/cartActions";
-
-const Shipping = () => {
-
-    const navigate = useNavigate();
-    const countriesList = Object.values(countries);
-
-    const { shippingInfo } = useSelector(state => state.cart);
-    const  [address, setAddress] = useState(shippingInfo.address);
-    const  [city, setCity ]= useState(shippingInfo.city);
-    const  [postalCode, setPostalCode ]= useState(shippingInfo.postalCode);
-    const  [phoneNo, setPhoneNo ]= useState(shippingInfo.phoneNo);
-    const  [country, setCountry ]= useState(shippingInfo.country);
-
-    const dispatch = useDispatch();
-    const submitHandler = (e)=>{
-        e.preventDefault();
-        dispatch(saveShippingInfo({address,city,phoneNo,postalCode,country}));
-        navigate('/order/confirm');
-    }
-
-  return (
-    <Fragment>
-        <MetaData title={'Shipping Info'}/>
-        <CheckOutSteps shipping />
-        <div className="row wrapper">
-=======
 import React, { Fragment, useState } from 'react'
 import { countries } from 'countries-list'
 
 import MetaData from '../layout/MetaData'
-import CheckoutSteps from './CheckoutSteps'
+import CheckOutSteps from './CheckOutSteps'
 import {  useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { saveShippingInfo } from '../../actions/cartActions'
@@ -67,10 +33,9 @@ const Shipping = ({ history }) => {
 
             <MetaData title={'Shipping Info'} />
 
-            <CheckoutSteps shipping />
+            <CheckOutSteps shipping />
 
             <div className="row wrapper">
->>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
                 <div className="col-10 col-lg-5">
                     <form className="shadow-lg" onSubmit={submitHandler}>
                         <h1 className="mb-4">Shipping Info</h1>
@@ -81,11 +46,7 @@ const Shipping = ({ history }) => {
                                 id="address_field"
                                 className="form-control"
                                 value={address}
-<<<<<<< HEAD
-                                onChange={(e)=> setAddress(e.target.value)}
-=======
                                 onChange={(e) => setAddress(e.target.value)}
->>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
                                 required
                             />
                         </div>
@@ -97,11 +58,7 @@ const Shipping = ({ history }) => {
                                 id="city_field"
                                 className="form-control"
                                 value={city}
-<<<<<<< HEAD
-                                onChange={(e)=> setCity(e.target.value)}
-=======
                                 onChange={(e) => setCity(e.target.value)}
->>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
                                 required
                             />
                         </div>
@@ -113,11 +70,7 @@ const Shipping = ({ history }) => {
                                 id="phone_field"
                                 className="form-control"
                                 value={phoneNo}
-<<<<<<< HEAD
-                                onChange={(e)=> setPhoneNo(e.target.value)}
-=======
                                 onChange={(e) => setPhoneNo(e.target.value)}
->>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
                                 required
                             />
                         </div>
@@ -129,11 +82,7 @@ const Shipping = ({ history }) => {
                                 id="postal_code_field"
                                 className="form-control"
                                 value={postalCode}
-<<<<<<< HEAD
-                                onChange={(e)=> setPostalCode(e.target.value)}
-=======
                                 onChange={(e) => setPostalCode(e.target.value)}
->>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
                                 required
                             />
                         </div>
@@ -144,16 +93,6 @@ const Shipping = ({ history }) => {
                                 id="country_field"
                                 className="form-control"
                                 value={country}
-<<<<<<< HEAD
-                                onChange={(e)=> setCountry(e.target.value)}
-                                required
-                            >
-                                    {countriesList.map(country => (
-                                        <option key={country.name} value={country.name}>
-                                            {country.name}
-                                        </option>
-                                    ))}
-=======
                                 onChange={(e) => setCountry(e.target.value)}
                                 required
                             >
@@ -163,7 +102,6 @@ const Shipping = ({ history }) => {
                                         {country.name}
                                     </option>
                                 ))}
->>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
 
                             </select>
                         </div>
@@ -178,14 +116,9 @@ const Shipping = ({ history }) => {
                     </form>
                 </div>
             </div>
-<<<<<<< HEAD
-    </Fragment>
-  )
-=======
 
         </Fragment>
     )
->>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
 }
 
 export default Shipping

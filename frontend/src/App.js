@@ -24,33 +24,22 @@ import axios from 'axios';
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 
-import Cart from './components/cart/Cart'
-import Shipping from "./components/cart/Shipping";
-import ConfirmOrder from "./components/cart/ConfirmOrder";
-import axios from "axios";
-import Payment from "./components/cart/Payment";
-import OrderSuccess from "./components/cart/OrderSuccess";
+// import Cart from "./components/cart/Cart";
+// import Shipping from "./components/cart/Shipping";
+// import ConfirmOrder from "./components/cart/ConfirmOrder";
+// import axios from "axios";
+// import Payment from "./components/cart/Payment";
+// import OrderSuccess from "./components/cart/OrderSuccess";
 import ListOrders from "./components/order/ListOrders";
 import OrderDetails from "./components/order/OrderDetails";
 
 
-import { Elements } from '@stripe/react-stripe-js'
-import { loadStripe } from '@stripe/stripe-js'
+// import { Elements } from '@stripe/react-stripe-js';
+// import { loadStripe } from '@stripe/stripe-js';
 function App() {
 
   const [stripeApiKey, setStripeApiKey] = useState('');
 
-<<<<<<< HEAD
-  useEffect(() => {
-    store.dispatch(loadUser());
-
-    async function getStripeApiKey() {
-      const {data} = await axios.get('/api/v1/stripeapi');
-      setStripeApiKey(data.stripeApiKey)
-    };
-
-    getStripeApiKey();
-=======
 
   useEffect(() => {
     store.dispatch(loadUser());
@@ -66,7 +55,6 @@ function App() {
 
 
 
->>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
 
   }, []);
 

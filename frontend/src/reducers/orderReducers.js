@@ -1,14 +1,5 @@
 import {
     CREATE_ORDER_REQUEST,
-<<<<<<< HEAD
-    CREATE_ORDER_REQUEST_SUCCESS,
-    CREATE_ORDER_REQUEST_FAIL,
-    CLEAR_ERRORS
-} from '../constants/orderConstants';
-
-export const newOrderReducer = (state={},action) => {
-    switch (action.type) {
-=======
     CREATE_ORDER_SUCCESS,
     CREATE_ORDER_FAIL,
     MY_ORDERS_REQUEST,
@@ -34,25 +25,17 @@ export const newOrderReducer = (state={},action) => {
 export const newOrderReducer = (state = {}, action) => {
     switch (action.type) {
 
->>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
         case CREATE_ORDER_REQUEST:
             return {
                 ...state,
                 loading: true
             }
-<<<<<<< HEAD
-        case CREATE_ORDER_REQUEST_SUCCESS:
-=======
 
         case CREATE_ORDER_SUCCESS:
->>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
             return {
                 loading: false,
                 order: action.payload
             }
-<<<<<<< HEAD
-        case CREATE_ORDER_REQUEST_FAIL:
-=======
 
         case CREATE_ORDER_FAIL:
             return {
@@ -110,13 +93,10 @@ export const orderDetailsReducer = (state = { order: {} }, action) => {
             }
 
         case ORDER_DETAILS_SUCCESS:
->>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
             return {
                 loading: false,
                 order: action.payload
             }
-<<<<<<< HEAD
-=======
 
         case ORDER_DETAILS_FAIL:
             return {
@@ -154,17 +134,11 @@ export const allOrdersReducer = (state = { orders: [] }, action) => {
                 loading: false,
                 error: action.payload
             }
->>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
         case CLEAR_ERRORS:
             return {
                 ...state,
                 error: null
             }
-<<<<<<< HEAD
-        default:
-            return state;
-    }
-=======
 
         default:
             return state;
@@ -223,5 +197,4 @@ export const orderReducer = (state = {}, action) => {
         default:
             return state
     }
->>>>>>> 38e7f6ee1e12550b3ceb44f6b0f8ec7381add95e
 }
