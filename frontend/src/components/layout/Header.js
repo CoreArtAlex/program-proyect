@@ -42,8 +42,8 @@ const Header = () => {
 
         <div className="nav-item col-12 col-md-3 mt-4 mt-md-0 my-1 text-center">
                     <Link to="/cart" style={{ textDecoration: 'none' }} >
-                        <span id="cart" className="col ml-4 my-1">Cart</span>
-                        <span className="col ml-4 my-1" id="cart_count">{cartItems.length}</span>
+                        <span id="cart" className="col ml-4 mx-2 my-1">Cart</span>
+                        <span className="col ml-4 mx-2 my-1" id="cart_count">{cartItems.length}</span>
                     </Link>
 
           {user ? (
@@ -93,7 +93,7 @@ const Header = () => {
             </div>
           ) : (
             !loading && (
-              <Link to="/login" className="col btn ml-4 btn-sm my-1" id="login_btn">
+              <Link to="/login" className="col btn ml-4 btn-sm mx-2 my-1" id="login_btn">
                 {" "}
                 Login{" "}
               </Link>
