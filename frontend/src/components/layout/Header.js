@@ -27,7 +27,7 @@ const Header = () => {
           <div className="navbar-brand">
             <Link to="/">
               <img
-                src="/images/logo.png"
+                src="/images/logo2.png"
                 alt="logo"
                 className="img-fluid col-md-4 px-0"
               />
@@ -43,7 +43,7 @@ const Header = () => {
         <div className="nav-item col-12 col-md-3 mt-4 mt-md-0 my-1 text-center">
                     <Link to="/cart" style={{ textDecoration: 'none' }} >
                         <span id="cart" className="col ml-4 mx-2 my-1">Cart</span>
-                        <span className="col ml-4 mx-2 my-1" id="cart_count">{cartItems.length}</span>
+                        <span className="col ml-4 mx-2 my-1 btn btn-secondary btn-outline-light" id="cart_count">{cartItems.length}</span>
                     </Link>
 
           {user ? (

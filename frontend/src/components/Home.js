@@ -87,10 +87,11 @@ const Home = ({ match }) => {
           <MetaData title={"Buy Whatever you Need Online"} />
           <h1 id="products_heading">Latest Products</h1>
 
-          <section id="products" className="container mt-5">
+          <section id="products" className="container d-flex mt-5 justify-content-around">
             <div className="row">
               {keyword ? (
                 <Fragment>
+                  <div className="row">
                   <div className="col-6 col-md3 mt-5 mb-5 ">
                     <div className="px-5">
                       {/* //? Price */}
@@ -160,6 +161,7 @@ const Home = ({ match }) => {
                       </div>
                     </div>
                   </div>
+                  {/* Products Display */}
                   <div className="col-6 col-md-9">
                     <div className="row">
                       {products &&
@@ -171,6 +173,7 @@ const Home = ({ match }) => {
                           />
                         ))}
                     </div>
+                  </div>
                   </div>
                 </Fragment>
               ) : (
